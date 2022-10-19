@@ -167,7 +167,7 @@
 	
 	<div class="form-group col-md-6 col-sm-6">
             <label for="state">Province</label>
-            <input type="text" style = "text-transform:capitalize;width:300px;" class="form-control input-sm"  name  = "province" id="province" placeholder="" required="">
+            <input type="text" style = "text-transform:capitalize;width:300px;" class="form-control input-sm" value="Misamis Occidental" readonly  name  = "province" id="province" placeholder="" required="">
      </div>
      
      <div class="form-group col-md-6 col-sm-6">
@@ -184,13 +184,9 @@
         <div class = "alert alert-danger" id = "cpass_msg" style = "display:none;width:300px; height:40px;text-align:center;"></div>
      </div>
  	<div class="form-group col-md-6 col-sm-6">
-            <label for="mobile">Donor Type</label>
-           	 <select class="form-control input-sm" style = "width:300px;" name = "type" id="donor" required="">
-				<option value="" disabled visited selected>Select Donor Type</option>
-				<option>Volunteer</option>
-				<option>Others</option>
-	      </select>
-        </div>
+        <label for="mobile">Donor Type</label>
+        <input type="text" style = "text-transform:capitalize;width:300px;" class="form-control input-sm" value="Volunteer" readonly   name = "type" id="donor" placeholder="" required=""> 
+    </div>
 	
 <div class="col-md-12 col-sm-12">
 	<div class="form-group col-md-12 col-sm-12">
