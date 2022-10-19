@@ -164,6 +164,9 @@ VALUES('$first','$mi','$last','$email','$password','$nationality','$occupation',
 		}
 
 
+		$last_id = mysqli_insert_id($con);
+
+
 
 		$name = $donor_last . ", " .  $donor_first . " " . $donor_middle; 
 		$mail->isSMTP();                       
@@ -177,21 +180,10 @@ VALUES('$first','$mi','$last','$email','$password','$nationality','$occupation',
 		$mail->addAddress($donor_email, 'Address Name');  
 			
 	
-		$message = " 
-		<html>
-			<head>
-				<title>Email Verification for ".$donor_email." </title>
-			</head>
-			<body>
-				<p>Thank you for Signing up!</p>
-				<table>
-					<tr>
-						<th> ".$name."\n</th><br>
-						<th>Email Verification</th>
-					</tr> 
-				</table>
-			</body>
-		</html>
+		$message = "
+			<p>Thank you for Signing up!</p>
+			<p>Please click the link to verify your account!.</p>
+			<p> <a href='http://localhost/bloodbank/email_verify.php?id=".$last_id."'> Verify here!</a>.</p> 
 		"; 
 		//Content
 		$mail->isHTML(true);                                  //Set email format to HTML

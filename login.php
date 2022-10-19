@@ -14,21 +14,24 @@ $query=mysqli_query($con,"select * from donor where donor_email='$email' and don
            $counter=mysqli_num_rows($query);
 		  	if ($counter == 0) 
 			  {	
-			 	 echo "<script type='text/javascript'>alert('Invalid Email or Password!');
-			 	 document.location='index.php';window.history.back();</script>";
+				echo "<script type='text/javascript'>alert('Invalid Email or Password!');
+				document.location='index.php';window.history.back();</script>";
 			  } 
 			  elseif ($counter > 0)
 			  {
-				$id=$row['donor_id'];
-				$first=$row['donor_first'];
-				$last=$row['donor_last'];
-				$pic=$row['donor_pic'];
-			  	$_SESSION['id']=$id;	
-				$_SESSION['pic']=$pic;
-				$_SESSION['name']=$first." ".$last;
-				  
-
-			  		echo "<script type='text/javascript'>document.location='donor/queing.php'</script>";
+				if($row['email_verified'] == 1){ 
+					$id=$row['donor_id'];
+					$first=$row['donor_first'];
+					$last=$row['donor_last'];
+					$pic=$row['donor_pic'];
+					$_SESSION['id']=$id;	
+					$_SESSION['pic']=$pic;
+					$_SESSION['name']=$first." ".$last;
+					echo "<script type='text/javascript'>document.location='donor/queing.php'</script>";
+				}else{
+					echo "<script type='text/javascript'>alert('Please verify your account first!');
+					document.location='index.php';window.history.back();</script>";
+				}
 			  	
 				  
   
