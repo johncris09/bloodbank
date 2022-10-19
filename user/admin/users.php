@@ -53,6 +53,7 @@
                                             <td class="center"><?php echo $row['user_type'];?></td>
                                             <td class="center">
 												<a href="#editUser<?=$id;?>" class="btn btn-success" data-toggle = "modal" data-target="#editUser<?=$id;?>"><i class = "fa fa-pencil"></i> Edit</a>
+                                                <a href="#deleteUser<?=$id;?>" class="btn btn-danger" data-toggle = "modal" data-target="#deleteUser<?=$id;?>"><i class = "fa fa-trashd"></i> Delete</a>
 											</td>
                                         </tr>
 
