@@ -61,7 +61,7 @@
         
                                             <td class="center">
 												<a href="#update<?php echo $id;?>" class="btn btn-success" data-toggle = "modal" data-target="#update<?php echo $id;?>"><i class = "fa fa-pencil"></i> Edit</a>
-												<a href="#delete<?php echo $id;?>" class="btn btn-danger" data-toggle = "modal" data-target="#delete<?php echo $id;?>"><i class = "fa fa-trash"></i> Delete</a>
+												<a href="delete.php?id=<?php echo $id;  ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this data?')"><i class = "fa fa-trash"></i> Delete</a>
 											</td>
                                         </tr> 
                                 <div class="modal fade" id="update<?=$id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
