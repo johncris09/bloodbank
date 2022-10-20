@@ -1,0 +1,12 @@
+TRUNCATE `agency`;
+TRUNCATE `answer`;
+TRUNCATE `blood_exam`;
+TRUNCATE `booking`;
+TRUNCATE `donation`;
+TRUNCATE `donor`;
+TRUNCATE `linkages`;
+TRUNCATE `physical_exam`;
+TRUNCATE `program_donor`;
+TRUNCATE `schedule`;
+TRUNCATE `survey`;
+TRUNCATE `test`;
