@@ -30,11 +30,7 @@
 
         <?php include 'nav_top.php';?>
 
-        <!-- END HEADER SECTION -->
-
-
-
-
+        <!-- END HEADER SECTION --> 
 
 
 
@@ -42,11 +38,7 @@
 
 		<?php include 'sidebar.php';?>
 
-        <!--END MENU SECTION -->
-
-
-
-
+        <!--END MENU SECTION --> 
 
         <!--PAGE CONTENT -->
 
@@ -93,6 +85,7 @@
                                             <th>Donation Date</th>
 
                                             <th>Date Expired</th>
+                                            <th>Action</th>
 
                                         </tr>
 
@@ -114,8 +107,7 @@
 
 										$query1=mysqli_query($con,"select * FROM blood_exam LEFT JOIN donation ON donation.donation_id = blood_exam.donation_id LEFT JOIN donor ON donor.donor_id = donation.donor_id WHERE blood_exam.expiry > '$expiring'")or die(mysqli_error($con));
 
-                                        while ($row=mysqli_fetch_array($query1)){
-
+                                        while ($row=mysqli_fetch_array($query1)){ 
                                             
 
 									?>  
@@ -135,8 +127,7 @@
                                             <td><?php echo date("F d, Y", strtotime($row['donation_date']));?></td>
 
                                            <td> <?php echo date("l, F d, Y", strtotime($row['expiry'])); ?></td>
-
-
+                                           <td> <a href='release_blood.php?id=<?php echo $row['blood_exam_id']; ?>' onclick="return confirm('This blood will be release.')" class="btn btn-primary">Release</a> </td> 
 
                                         </tr> 
 
