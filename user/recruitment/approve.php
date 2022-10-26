@@ -1,16 +1,34 @@
-<?php include 'session.php';
-/*include '../assets/includes/dbcon.php'; 
-*/
+<?php include 'session.php'; 
+
 	$id = $_REQUEST['id'];  
 
 	$query=mysqli_query($con,"select * from donor where donor_id='$id'")or die(mysqli_error($con));
-	$row=mysqli_fetch_array($query);  
+	$row=mysqli_fetch_array($query);   
 	$donor_email = ucwords($row['donor_email']);  
 	$lastname = $row['donor_last'];  
+	$donor_contact=$row['donor_contact'];  
+  
 
+	require_once '../../assets/vendor/autoload.php';
+ 
+	use Twilio\Rest\Client; 
+	 
+	$sid    = "AC20cd5fa4d5f0111ce8bd6fe7fcee921c"; 
+	$token  = "579de2055292682eb9abf4da3c37d29d"; 
+	$twilio = new Client($sid, $token); 
+	  
+	$message = $twilio->messages->create(
+		$donor_contact, // Text this number
+	  [
+		'from' => '+14632202237', // From a valid Twilio number
+		'body' => 'Good day Mr/Mrs '.$lastname.'!, Thank You for donating blood! Regards, '
+	  ]
+	);
+	 
 
-	//Import PHPMailer classes into the global namespace
-	//These must be at the top of your script, not inside a function
+	// PHPMailer
+	// Import PHPMailer classes into the global namespace
+	// These must be at the top of your script, not inside a function
 
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
@@ -36,7 +54,7 @@
 
 	$message = "
 		<p>Good day Mr/Mrs $lastname!</p>
-		<p>Thank You for donataing blood!</p> 
+		<p>Thank You for donating blood!</p> 
 		<p>Regards,</p>
 	"; 
 	//Content
