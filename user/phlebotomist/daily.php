@@ -45,7 +45,7 @@
 									<tbody>
                                     <?php   
                                     include 'dbcon.php';                                
-                                        $query1=mysqli_query($con,"SELECT * FROM `blood_exam`, donor  where blood_exam.donation_id = donor.donor_id ORder by donor.donor_id desc")or die(mysqli_error($con));
+                                        $query1=mysqli_query($con,"select * from donor ORDER BY donor_id DESC")or die(mysqli_error($con));
                                         while ($row=mysqli_fetch_array($query1)){
                                             $did=$row['donor_id']; 
 
@@ -57,24 +57,24 @@
                                             }
 
                                             if($rowcount == 1){
-                                        ?>
+                                    ?>
 
-                                        <?php
-                                                }else{
+                                    <?php
+                                            }else{
 
-                                        ?>
-                                                <tr class="odd gradeX">
-                                                    <td style = "text-transform:capitalize;"><?php echo $row['donor_first']. " " .$row['donor_middle']. " " .$row['donor_last'];?></td>  
-                                                    <td class="center">
-                                                        <a href="#exam<?php echo $did;?>" class="btn btn-success" data-toggle = "modal" data-target="#exam<?php echo $did;?>"><i class = "fa fa-pencil"></i>Fill Up Exam</a>
-                                                    </td>
-                                                </tr> 
+                                    ?>
+                                                    <tr class="odd gradeX">
+                                                        <td style = "text-transform:capitalize;"><?php echo $row['donor_first']. " " .$row['donor_middle']. " " .$row['donor_last'];?></td>  
+                                                        <td class="center">
+                                                            <a href="#exam<?php echo $did;?>" class="btn btn-success" data-toggle = "modal" data-target="#exam<?php echo $did;?>"><i class = "fa fa-pencil"></i>Fill Up Exam</a>
+                                                        </td>
+                                                    </tr> 
 
-                                        <?php
-                                                }
-    
-                                        ?>  
-                                                <?php include 'update_exam_modal.php';?>
+                                    <?php
+                                            }
+ 
+                                    ?>  
+                                        <?php include 'update_exam_modal.php';?>
                                         <?php }?>                                   									
                                     </tbody>
                                 </table>
