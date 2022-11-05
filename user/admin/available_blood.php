@@ -105,7 +105,7 @@
 
                                    
 
-										$query1=mysqli_query($con,"select * FROM blood_exam LEFT JOIN donation ON donation.donation_id = blood_exam.donation_id LEFT JOIN donor ON donor.donor_id = donation.donor_id WHERE blood_exam.expiry > '$expiring'")or die(mysqli_error($con));
+										$query1=mysqli_query($con,"select * FROM blood_exam LEFT JOIN donation ON donation.donation_id = blood_exam.donation_id LEFT JOIN donor ON donor.donor_id = donation.donor_id WHERE release_status = 0 and  blood_exam.expiry > '$expiring'")or die(mysqli_error($con));
 
                                         while ($row=mysqli_fetch_array($query1)){ 
                                             
@@ -167,8 +167,8 @@
 
     $date = date("Y-m-d");
 
-    $avail=mysqli_query($con,"select COUNT(*) as blood from blood_exam where expiry > '$date'")or die(mysqli_error($con));
-
+    $avail=mysqli_query($con,"select COUNT(*) as blood from blood_exam where expiry > '$date' and release_status = 0")or die(mysqli_error($con));
+ 
             $rowa=mysqli_fetch_array($avail);
 
 ?>                     
