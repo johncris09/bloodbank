@@ -9,21 +9,21 @@
 	$donor_contact=$row['donor_contact'];  
   
 
-	require_once '../../assets/vendor/autoload.php';
+	// require_once '../../assets/vendor/autoload.php';
  
-	use Twilio\Rest\Client; 
+	// use Twilio\Rest\Client; 
 	 
-	$sid    = "AC20cd5fa4d5f0111ce8bd6fe7fcee921c"; 
-	$token  = "579de2055292682eb9abf4da3c37d29d"; 
-	$twilio = new Client($sid, $token); 
+	// $sid    = "AC20cd5fa4d5f0111ce8bd6fe7fcee921c"; 
+	// $token  = "579de2055292682eb9abf4da3c37d29d"; 
+	// $twilio = new Client($sid, $token); 
 	  
-	$message = $twilio->messages->create(
-		$donor_contact, // Text this number
-	  [
-		'from' => '+14632202237', // From a valid Twilio number
-		'body' => 'Good day Mr/Mrs '.$lastname.'!, Thank You for donating blood! Regards, '
-	  ]
-	);
+	// $message = $twilio->messages->create(
+	// 	$donor_contact, // Text this number
+	//   [
+	// 	'from' => '+14632202237', // From a valid Twilio number
+	// 	'body' => 'Good day Mr/Mrs '.$lastname.'!, Thank You for donating blood! Regards, '
+	//   ]
+	// );
 	 
 
 	// PHPMailer
